@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "Tab Viewer",
+    "description": "Show tab list, handle tabs easily.",
+    "version": "0.1.0",
+    "author": "Enzo Wang",
+    "background": {
+        "page": "popup.html",
+        "persistent": false
+    },    
+    "content_scripts": [ {
+        "matches":["<all_urls>"],
+        "js":["libs/angularjs-1.2.5.min.js",
+              "libs/jquery-1.10.2.js",
+              "libs/jquery.popupoverlay.js",
+              "util.js",
+              "contentscript.js"],
+        "css": ["css/tabViewer.css"],
+        "run_at": "document_end"
+    }],
+    "icons": { 
+        "16": "images/tv_16.png",
+        "48": "images/tv_48.png",
+        "128": "images/tv_128.png" },	
+    "permissions": [ 
+        "tabs"
+        ], 
+    "browser_action": {
+        "default_title": "Tab Viewer",
+        "default_icon": "images/tv_16.png",
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+        "images/empty_page.png",
+        "images/icon_search_16.png"
+    ]
+}

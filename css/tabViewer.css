@@ -1,0 +1,230 @@
+/*
+ * Copyright (c) 2014 Enzo Wang. Released under MIT license, see LICENSE file.
+ */
+
+body .tvCssReset {
+    padding: 0;
+    position: static;
+    background: none;
+    border: none;
+    bottom: auto;
+    box-shadow: none;
+    width: auto;
+    font-size: 17px;  
+}
+
+#chexTvFrame {
+    display: block;
+    margin: 100px 0px 0px 0px; /* popup frame op offset */
+    width: 400px;   
+    height: 344px;
+    border-radius: 5px 5px 6px 6px;   
+    background: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    font-family : "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    z-index: 2147483645; /* used for popup_poverlay libs */
+}
+
+#tvSearchVal {
+    outline: none;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 4px 3px 3px 28px !important;
+    width: 100%;   
+    height:32px;
+    background: #E6E6E6 url('chrome-extension://__MSG_@@extension_id__/images/icon_search_16.png') no-repeat 8px 60%; 
+    background-size: 16px 16px;
+    border-radius: 5px 5px 0px 0px;    
+    border: 1px solid #E6E6E6;  
+    box-shadow: none;
+}
+
+#tvSearchVal:focus {
+    outline: none;
+    outline-width: 0px;
+}
+
+.tvTabInfos {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    line-height: 0px;
+}
+
+ul.tvTabInfos, .tvTabInfos li {
+    list-style-type: none;
+    margin: 0; 
+    padding: 0;
+}
+
+li.tvTabItems {
+    height: 28px;
+    position: relative;
+    -webkit-transition: all 0.05s ease-in-out;
+    -moz-transition: all 0.05s ease-in-out;
+    -ms-transition: all 0.05s ease-in-out;
+    -o-transition: all 0.05s ease-in-out;
+    padding: 0px 0px 0px 3px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.tvTabItems:focus {
+    outline: 0px;
+    border: 1px solid #D7E6F5;
+    background: #D7E6F5;
+}
+
+.tvTabItems:hover {
+    outline: 0px;
+    border: 1px solid #D7E6F5;
+}
+
+.tvTabIconTitle {
+    margin: 0;
+    border: 0;
+    width: 400px;
+    padding: 0px 0px 0px 4px; 
+    height: 28px;
+    line-height: 28px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.tvFavIcon {
+    height: auto;
+    font-size: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 6px 6px 6px 0px;
+    overflow: hidden;
+    display: table-cell !important;
+    float: left;
+}
+
+img.tvFavIconImg {
+    box-sizing: none;
+    -webkit-box-sizing: none;
+    border: 0
+    width: 16px;
+    height: 16px !important;
+    vertical-align: inherit;
+}
+
+.tvTabTitle {
+    display: inline-block;
+    line-height: 28px;
+    height: 28px;
+    width: 340px;
+    padding: 1px 12px 0px 0px;
+    overflow: hidden;
+    vertical-align: center;
+    float: left;
+}
+
+.tvCloseTab { 
+    margin: 0px 6px 0px 0px;
+    padding: 3px 0px 3px 0px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 28px;
+    visibility: hidden;
+    cursor: pointer; 
+    font-size: 16px; 
+    color: #E6C09A;
+    position: absolute;
+    right: 0px;
+}
+
+.tvTabItems:hover .tvCloseTab {
+    visibility: visible;
+    color: #D7E6F5;
+}
+
+.tvTabItems:hover .tvCloseTab:hover {
+    visibility: visible;
+    color: #BA2E2E;
+    -webkit-transition: all 0.3s ease-in;
+}
+
+.tvTabItems:focus .tvCloseTab {
+    visibility: visible;
+    color: #E6C09A;
+}
+
+.tvNoTabFound {
+    background: #5D8AA8;
+    width: 400px;
+    height: 312px;
+    border-radius: 0px 0px 5px 5px;   
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+/* page style */
+#tabPager {
+    outline: none;
+    margin: 0;
+    border: 0;
+    width: 100%;   
+    height:32px;
+    border-radius: 0px 0px 5px 5px;    
+    border: 0px solid #E6E6E6;  
+    box-shadow: none;
+}
+
+.tabPage {
+    clear: both;
+    background: #E6E6E6;
+    margin: 0 10px;
+    font-size: 14px;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+} 
+
+.tabPage a {
+    background: #E6E6E6;
+    color: #D7E6F5;
+    vertical-align: center;
+    line-height: 32px;
+    padding:3px;
+    float: none !important;
+    text-decoration: none;
+}
+
+.tabPage a:link,.tabPage a:visited, .tabPage a:hover
+{
+    color: black; text-decoration: none; 
+}
+
+.tabPage a:active {
+    color: black ; text-decoration: none; 
+    font-weight: bold;
+}
+
+.tabPage a.focusPage {
+    background: #FFCC66;
+}
+
+.tabPage span:focus, .tabPage a:focus {
+    background: white;
+    outline: 0px;
+}
+
+.tabPage a.leftEdgePage, .tabPage a.rightEdgePage {
+    color: white;
+}
