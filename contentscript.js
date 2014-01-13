@@ -22,7 +22,7 @@ chexTvApp.directive('chexTv', function(){
             'placeholder="Search tabs or navigate pages" id="tvSearchVal">' +
             '<span id="tvUpdtTab" ng-click="updateTabs()"></span>' +
             '<ul class="tvTabInfos">' +
-                '<li ng-repeat="tab in pagedTabs[currentPage]" class="tvTabItems" ' + 
+                '<li ng-repeat="tab in pagedTabs[currentPage]" class="tvTabItems" ' +
                 'tabindex="10000" ng-key-listen-enter="keyPressEnter(tvTabInfos, {{tab.index}})" ' +
                 'ng-key-listen-d="keyPressD(tvTabInfos, {{tab.index}})">' +
                     '<span class="tvTabIconTitle" >' +
@@ -108,7 +108,7 @@ chexTvApp.controller('TabViewerCtrl', function($scope, $filter, tabHandle, popup
             }
         }
     };
-    
+
     $scope.range = function (start, end) {
         var ret = [];
         if (!end) {
@@ -120,23 +120,23 @@ chexTvApp.controller('TabViewerCtrl', function($scope, $filter, tabHandle, popup
         }
         return ret;
     };
-    
+
     $scope.prevPage = function () {
         if ($scope.currentPage > 0) {
             $scope.currentPage--;
         }
     };
-    
+
     $scope.nextPage = function () {
         if ($scope.currentPage < $scope.pagedTabs.length - 1) {
             $scope.currentPage++;
         }
     };
-    
+
     $scope.setPage = function () {
         $scope.currentPage = this.n;
     };
-   
+
     $scope.clearQuery = function() {
         $scope.tvQuery = {};
         $scope.updateTabSearch();
@@ -231,7 +231,7 @@ function ngBootstrap()  {
 }
 
 function doKeyPress(e) {
-    if (e.keyCode == trigger_key && e.altKey){
+    if (e.keyCode == trigger_key && e.altKey) {
         injectNgApp();
 
         /* clear query text */
@@ -241,6 +241,9 @@ function doKeyPress(e) {
             if (response.tabInfo === null) {
                 alert("tab info is null");
             }
+            if (response.tabInfo.length === 0) {
+                alert("tab info is empty");
+            }
             /* workaround: sometimes tab info is undefined */
             if (response.tabInfo !== undefined) {
                 tabsInfoCs = response.tabInfo;
@@ -248,13 +251,16 @@ function doKeyPress(e) {
             } else {
                 //alert("tab info is undefined");
             }
-            $('#chexTvFrame').popup( {vertical: "top",// blur: false,
-                opacity: 0.5, "autozindex": true,  // set highest z-index
-                //onclose: function() {}});
-                onopen: function() {$('#tvSearchVal').focus();}});
-                $('#chexTvFrame').popup("show");
-                $('#tvSearchVal').trigger("focus");
         });
+        $('#chexTvFrame').popup( {vertical: "top",// blur: false,
+            opacity: 0.5, "autozindex": true,  // set highest z-index
+            //onclose: function() {}});
+            onopen: function() {
+                $('#tvSearchVal').focus();
+                $('#tvUpdtTab').trigger("click");
+            }});
+        $('#chexTvFrame').popup("show");
+        $('#tvSearchVal').trigger("focus");
     }
 }
 

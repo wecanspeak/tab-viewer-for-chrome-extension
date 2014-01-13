@@ -26,15 +26,14 @@ function updateTabInfo() {
         }
         chrome.browserAction.setBadgeText({text: tabCntShow});
     });
-
 }
 
 function tabNotify(tabs) {
     tabsInfo = tabs;
     tabs.forEach(function(tab, index, array){
         chrome.tabs.sendMessage(
-            tab.id, 
-            {action: "[From bg] your tabs info need update", tabsInfoUpdt: tabsInfo}, 
+            tab.id,
+            {action: "[From bg] your tabs info need update", tabsInfoUpdt: tabsInfo},
             function(response) {});
     });
 }

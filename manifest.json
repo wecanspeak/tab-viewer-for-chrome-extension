@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Tab Viewer",
     "description": "Show tab list, handle tabs easily.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Enzo Wang",
     "background": {
         "page": "popup.html",
